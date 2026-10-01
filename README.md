@@ -4,33 +4,7 @@ Platform dashboard pengujian, integrasi, dan pemantauan riil untuk layanan kompu
 
 ---
 
-## 1. Prinsip Desain & Rekayasa Sistem (Engineering Rules)
-
-Sistem ini dirancang dengan standar ketat untuk kebutuhan operasional enterprise dan evaluasi teknis infrastruktur cloud:
-
-1. **Zero AI Slop & Utilitarian Interface**:
-   - Menghindari dekorasi visual berlebihan, animasi melayang/pantul non-fungsional, dan elemen grafis klise.
-   - Tata letak terstruktur dengan kepadatan data tinggi (high-density layout), navigation sidebar ringkas, panel tabular, dan status indikator monokromatis.
-2. **Tanpa Gradasi (Solid Flat Design)**:
-   - Seluruh warna antarmuka menggunakan palet solid datar dengan kontras bersih (basis netral `slate-950`/`slate-900` dengan aksen baja solid `steel-700`/`steel-500`).
-   - Tidak ada efek linear-gradient, radial-gradient, atau glow blur buatan.
-3. **Tanpa Emoji (Zero Emojis)**:
-   - Dilarang keras menyertakan emoji dalam kode, antarmuka, tombol, status, maupun log teknis.
-   - Menggunakan ikon SVG monokrom standar industri (`lucide-react`) dan label teks murni.
-4. **Dilarang Data Dummy / Real Backend Or Empty**:
-   - Tidak ada array data tiruan statis (*fake data/mock data* seperti "Truck A", "Order 123", atau angka telemetri palsu).
-   - Apabila koneksi API belum terhubung atau bernilai null, tampilan menampilkan status riil: **"Tidak ada data"**.
-   - Jika koneksi gagal (koneksi ditolak, batas waktu habis, 404, atau CORS), antarmuka menampilkan status error teknis apa adanya (contoh: `Gagal terhubung ke backend [URL]. Status: ECONNREFUSED`).
-5. **Mode Troubleshooting & Audit Terintegrasi**:
-   - Setiap modul dilengkapi dengan panel drawer diagnostik yang mencatat:
-     - Request URL & HTTP Method
-     - HTTP Status Code & Latensi Jaringan riil (dalam milidetik)
-     - Raw Response Body / Error Payload dalam format JSON/teks monospace.
-   - Tersedia modul **Global Audit Log** untuk menginspeksi dan mengekspor seluruh rekaman transmisi jaringan sistem.
-
----
-
-## 2. Pemetaan Spesifikasi 8 Modul & Layanan AWS
+## 1. Pemetaan Spesifikasi 8 Modul & Layanan AWS
 
 | Modul | Nama Modul | Layanan AWS Terkait | Fungsi Operasional & Protokol |
 |---|---|---|---|
@@ -45,7 +19,7 @@ Sistem ini dirancang dengan standar ketat untuk kebutuhan operasional enterprise
 
 ---
 
-## 3. Struktur Direktori Proyek
+## 2. Struktur Direktori Proyek
 
 ```text
 smart-logistics/
@@ -91,7 +65,7 @@ smart-logistics/
 
 ---
 
-## 4. Panduan Menjalankan Aplikasi
+## 3. Panduan Menjalankan Aplikasi
 
 ### Kebutuhan Sistem
 - Node.js versi 18.x atau lebih baru (direkomendasikan v20+ atau v22+)
@@ -123,7 +97,7 @@ Hasil kompilasi siap didistribusikan melalui AWS S3 Bucket + CloudFront Distribu
 
 ---
 
-## 5. Mode Troubleshooting & Verifikasi Infrastruktur
+## 4. Mode Troubleshooting & Verifikasi Infrastruktur
 
 Ketika menguji koneksi ke endpoint AWS:
 1. Klik tombol **Uji Probe** atau aksi submit pada modul terkait.
